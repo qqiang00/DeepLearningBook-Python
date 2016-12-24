@@ -30,8 +30,13 @@ def tf_solve():
   product1_inverse = tf.matrix_inverse(product1)
   product2 = tf.matmul(product1_inverse,tfXT)
   product3 = tf.matmul(product2,tfY)
-  with tf.Session() as sess:
-    valuex,valuey,theta = sess.run((tfX,tfY,product3))
+  # using tf.InteractiveSession()
+  sess = tf.InteractiveSession()
+  valuex, valuey, theta = tfX.eval(), tfY.eval(), product3.eval()
+  sess.close()
+  # or using tf.Session()
+  # with tf.Session() as sess:
+  #   valuex,valuey,theta = sess.run((tfX,tfY,product3))
   return valuex,valuey,theta
 
 if __name__ == "__main__":
