@@ -15,6 +15,7 @@ c = np.mat([0,-1])            # formula (6.5)  shape should be (1,2) not (2,1)
 w = np.mat([1,-2]).T          # formula (6.6)  shape (2,1)
 XW = X.dot(W)                 # formula (6.8)  shape: (4,2)*(2,2) = (4,2)
 b = 0
+
 def ReLU(X):
   # return np.maximum(X, 0)
   # return (abs(X) + X)/2.
